@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import MessagesPage from './components/MessagesPage';
+import MessagesPage from './components/message/MessagesPage';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import { Provider } from 'react-redux';
