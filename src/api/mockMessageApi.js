@@ -28,6 +28,7 @@ const messages = [
     },
 ];
 
+// generate a unique id alike
 function guid() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
         s4() + '-' + s4() + s4() + s4();
@@ -38,6 +39,8 @@ function s4() {
         .toString(16)
         .substring(1);
 }
+
+// an api mock with Promise for easy transition to a real one
 class MessageApi {
 
     static getAllMessages() {
