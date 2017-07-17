@@ -2,22 +2,48 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import * as messageActions from '../../actions/messageActions';
 import MessageForm from './MessageForm';
 
 export class AddMessagePage extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            message: Object.assign({}, props.message)
+        };
+
+        this.updateMessageState = this.updateMessageState.bind(this);
+        this.saveMessage = this.saveMessage.bind(this);
+    }
+
+    updateMessageState(event) {
+        const field = event.target.name;
+        let message = Object.assign({}, this.state.message);
+        message[field] = event.target.value;
+
+        return this.setState({message: message});
+    }
+
+    redirect() {
+        this.props.router.push('/')
+    }
+
+    saveMessage(event) {
+        event.preventDefault();
+        this.props.actions.addMessage(this.state.message)
+            .then(() => this.redirect())
     }
 
     render(){
         return (
-           <MessageForm
-           onChange =''
-           onSave=""
-           message=""
-           />
-            )
+            <MessageForm
+                onChange={this.updateMessageState}
+                onSave={this.saveMessage}
+                message={this.state.message}
+            />
+        )
     }
 }
 
@@ -28,4 +54,10 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, null)(AddMessagePage);
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(messageActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddMessagePage);
