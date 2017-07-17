@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
+import MessageForm from './MessageForm';
 
 export class AddMessagePage extends Component {
 
@@ -12,9 +12,11 @@ export class AddMessagePage extends Component {
 
     render(){
         return (
-            <div>
-                the add Message Page {this.props.message.id}
-            </div>
+           <MessageForm
+           onChange =''
+           onSave=""
+           message=""
+           />
             )
     }
 }
