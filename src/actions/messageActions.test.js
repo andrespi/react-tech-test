@@ -110,7 +110,6 @@ describe('Message Async Actions', () => {
             ];
 
             const store = mockStore({messages: []}, expectedAction);
-            console.log(store);
 
             return store.dispatch(addMessage(message)).then( () => {
                 const actions = store.getActions();

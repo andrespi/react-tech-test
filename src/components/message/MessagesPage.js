@@ -27,24 +27,15 @@ class MessagesPage extends Component {
                        className="btn btn-primary"
                        onClick={this.redirectToAddMessagePage}/>
             </div>
-
-
         )
-
     }
 }
 
-
 function mapStateToProps(state) {
-
-
+    
     return {
         messages: state.messages
     };
 }
-/*function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(cartActions, dispatch)
-    }
-}*/
+
 export default connect(mapStateToProps)(MessagesPage);
