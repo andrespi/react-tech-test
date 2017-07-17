@@ -21,8 +21,7 @@ export class AddMessagePage extends Component {
     updateMessageState(event) {
         const field = event.target.name;
         let message = Object.assign({}, this.state.message);
-        message[field] = event.target.value;
-
+        message[field] = event.target.type === 'checkbox' ? event.target.checked :event.target.value;
         return this.setState({message: message});
     }
 

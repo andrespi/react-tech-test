@@ -6,6 +6,7 @@ const CheckBox = ({name, label, onChange, value}) => {
         <div style={{marginBottom: '20px'}} >
             <label htmlFor={name} >
                 <input
+                    name="isPrivate"
                     type="checkbox"
                     onChange={onChange}
                     value={value}
