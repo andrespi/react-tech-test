@@ -1,6 +1,7 @@
 import React from 'react';
 import TextInput from '../common/TextInput';
 import CheckBox from '../common/CheckBox';
+import PropTypes from 'prop-types';
 
 const MessageForm = ({message, onSave, onChange}) => {
     return (
@@ -26,6 +27,12 @@ const MessageForm = ({message, onSave, onChange}) => {
             />
         </form>
     );
+};
+
+MessageForm.propTypes = {
+    message: PropTypes.object.isRequired,
+    onSave: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default MessageForm;

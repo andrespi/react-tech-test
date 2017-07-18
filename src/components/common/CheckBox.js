@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const CheckBox = ({name, label, onChange, value}) => {
+const CheckBox = ({name, label, onChange}) => {
 
     return (
         <div style={{marginBottom: '20px'}} >
@@ -9,7 +10,6 @@ const CheckBox = ({name, label, onChange, value}) => {
                     name="isPrivate"
                     type="checkbox"
                     onChange={onChange}
-                    value={value}
                     style={{marginRight: '10px'}}
                 />
                 {label}
@@ -17,6 +17,13 @@ const CheckBox = ({name, label, onChange, value}) => {
         </div>
     );
 };
+
+CheckBox.propTypes = {
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+};
+
 
 export default CheckBox;
 

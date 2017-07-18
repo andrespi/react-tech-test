@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageListRow from './MessageListRow';
+import PropTypes from 'prop-types';
 
 const MessageList = ({messages}) => {
 
@@ -20,5 +21,9 @@ const MessageList = ({messages}) => {
     );
 };
 
+MessageList.propTypes = {
+    messages: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default MessageList;
+

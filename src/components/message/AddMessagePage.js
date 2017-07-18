@@ -1,9 +1,10 @@
-
+import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as messageActions from '../../actions/messageActions';
 import MessageForm from './MessageForm';
+
 
 export class AddMessagePage extends Component {
 
@@ -45,6 +46,11 @@ export class AddMessagePage extends Component {
         )
     }
 }
+
+AddMessagePage.propTypes = {
+    message: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
+};
 
 function mapStateToProps(state, ownProps) {
     let message = {id: 'test', message: '', isPrivate: ''}

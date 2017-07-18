@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-//import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {browserHistory} from 'react-router';
 import MessageList from './MessageList';
+import PropTypes from 'prop-types';
 
 class MessagesPage extends Component {
     constructor(props) {
@@ -31,8 +31,12 @@ class MessagesPage extends Component {
     }
 }
 
+MessagesPage.propTypes = {
+    messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
 function mapStateToProps(state) {
-    
+
     return {
         messages: state.messages
     };

@@ -7,7 +7,7 @@ describe('CkeckBox', () => {
 
     function setup() {
         const props = {
-            name: "isPrivate", label: "some", value: "the value",
+            name: "isPrivate", label: "some",
             onSave: () => {},
             onChange: () => {}
         };
@@ -17,9 +17,6 @@ describe('CkeckBox', () => {
 
     it('render the props', () => {
         const wrapper = setup();
-        expect(wrapper.find('input').props().value).toBe('the value');
         expect(wrapper.find('label').text()).toBe('some');
     })
-
-
 });

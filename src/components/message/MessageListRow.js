@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MessageListRow = ({message}) => {
     return (
@@ -9,5 +10,8 @@ const MessageListRow = ({message}) => {
     );
 };
 
+MessageListRow.propsTypes = {
+    message: PropTypes.object.isRequired
+};
 
 export default MessageListRow;
